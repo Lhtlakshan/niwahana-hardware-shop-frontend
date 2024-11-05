@@ -1,0 +1,36 @@
+<div class="mt-4 d-flex">
+    <div class="m">
+        <img [src]="imagepath" alt="" srcset="" [style.width]="'400px'" [style.height]="'400px'">
+    </div>
+    
+  <div class="form w-100" [formGroup]="loginForm">
+    <h1 class="text-center">Login</h1>
+
+    <div class="form-group m-4">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        required
+        placeholder="Email"
+        formControlName="email"
+      />
+    </div>
+    <div class="form-group m-4">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        required
+        placeholder="Password"
+        formControlName="password"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary m-4" (click)="submitLogin()">Login</button>
+  </div>
+
+  
+</div>
+

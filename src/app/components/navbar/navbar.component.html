@@ -1,0 +1,61 @@
+<div *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-brand ms-3">Niwahana Hardware</div>
+
+    <div class="d-flex">
+      <button class="btn" routerLink="">Home</button>
+    </div>
+    <div class="d-flex flex-row me-lg-5 bg-secondary rounded-3 text-bg-success ms-auto">
+      <a
+        class="nav-item nav-link me-lg-2 btn btn-primary p-2 active"
+        href="#"
+        routerLink="login"
+        >Login</a
+      >
+      <a class="nav-item nav-link p-2" href="#" routerLink="signup">Signup</a>
+    </div>
+  </nav>
+</div>
+
+
+
+<div *ngIf="isAdminLoggedIn">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-brand ms-3">Niwahana Hardware</div>
+    <div class="d-flex">
+      <button class="btn" routerLink="admin/adminDashboard">Dashboard</button>
+      <button class="btn" routerLink="login">Analysis</button>
+      <button class="btn" routerLink="login">Category</button>
+      <button class="btn" routerLink="login">Product</button>
+      <button class="btn" routerLink="login">Orders</button>
+    </div>
+    <div class="me-lg-5 bg-secondary rounded-3 text-bg-success ms-auto">
+      <a
+        class="nav-item nav-link me-lg-2 btn btn-primary p-2"
+        href="#"
+        (click)="logout()"
+        >Logout</a
+      >
+    </div>
+  </nav>
+</div>
+
+<div *ngIf="isCustomerLoggedIn">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-brand ms-3">Niwahana Hardware</div>
+    <div class="d-flex">
+      <button class="btn" routerLink="customer/customerDashboard">Dashboard</button>
+      <button class="btn" routerLink="">Cart</button>
+      <button class="btn" routerLink="login">Orders</button>
+      <button class="btn" routerLink="login">Profile</button>
+    </div>
+    <div class="me-lg-5 bg-secondary rounded-3 text-bg-success ms-auto">
+      <a
+        class="nav-item nav-link me-lg-2 btn btn-primary p-2"
+        href="#"
+        (click)="logout()"
+        >Logout</a
+      >
+    </div>
+  </nav>
+</div>
