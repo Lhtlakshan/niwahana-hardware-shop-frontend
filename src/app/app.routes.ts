@@ -6,6 +6,8 @@ import { CustomerDashboardComponent } from './customer/components/customer-dashb
 import { PostCategoryComponent } from './admin/components/post-category/post-category.component';
 import { PostProductComponent } from './admin/components/post-product/post-product.component';
 import { CartComponent } from './customer/components/cart/cart.component';
+import { PostCouponComponent } from './admin/components/post-coupon/post-coupon.component';
+import { CouponsComponent } from './admin/components/coupons/coupons.component';
 
 export const routes: Routes = [
     {
@@ -35,5 +37,13 @@ export const routes: Routes = [
     {
         path:"customer/cart",
         component:CartComponent
+    },
+    {
+        path:"admin/add-coupon",
+        component:PostCouponComponent
+    },
+    {
+        path:"admin/coupons",
+        component:CouponsComponent
     }
 ];

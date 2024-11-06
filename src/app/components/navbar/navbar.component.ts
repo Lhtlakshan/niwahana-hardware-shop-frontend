@@ -15,6 +15,8 @@ export class NavbarComponent {
   isAdminLoggedIn : boolean = UserStorageService.isAdminLoggedIn();
   isCustomerLoggedIn : boolean = UserStorageService.isCustomerLoggedIn();
 
+    imagepath: string = "../../../images/products.jpg";
+
   constructor(private router:Router){ }
 
   ngOnInit(){

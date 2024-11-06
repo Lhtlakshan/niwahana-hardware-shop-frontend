@@ -15,6 +15,8 @@ import { UserStorageService } from '../../../services/storage/user-storage.servi
 export class PostProductComponent {
   productForm:FormGroup
 
+  imagepath: string = "../../../images/cartImg.jpg";
+  
   listOfCategories:any=[];
   selectedFile: File | null;
   imagePreview:string | ArrayBuffer|null;

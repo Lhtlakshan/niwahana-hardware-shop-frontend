@@ -1,0 +1,57 @@
+<div class="container">
+  <!-- <div class="m">
+        <img [src]="imagepath" alt="" srcset="" [style.width]="'400px'" [style.height]="'400px'">
+    </div> -->
+
+  <div class="form w-100 mt-3" [formGroup]="couponForm">
+    <h1 class="text-center">Add Coupon</h1>
+
+    <div class="form-group m-4">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        required
+        placeholder="Name"
+        formControlName="name"
+      />
+    </div>
+    <div class="form-group m-4">
+      <label for="code">Code</label>
+      <input
+        type="text"
+        class="form-control"
+        id="code"
+        required
+        placeholder="code"
+        formControlName="code"
+      />
+    </div>
+    <div class="form-group m-4">
+      <label for="discount">Discount (%)</label>
+      <input
+        type="text"
+        class="form-control"
+        id="discount"
+        required
+        placeholder="discount"
+        formControlName="discount"
+      />
+    </div>
+    <div class="form-group m-4">
+      <label for="expirationDate">Expiration Date</label>
+      <input
+        type="date"
+        class="form-control"
+        id="expirationDate"
+        required
+        placeholder="expirationDate"
+        formControlName="expirationDate"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary m-4" (click)="addCoupon()">
+      Add
+    </button>
+  </div>
+</div>

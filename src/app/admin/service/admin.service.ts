@@ -53,5 +53,17 @@ export class AdminService {
       'Authorization','Bearer ' + UserStorageService.getToken()
     )
   }
+
+  addCoupon(couponDto:any):Observable<any>{
+    return this.http.post(BASIC_URL + "admin/coupons/add" , couponDto,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
+
+  getAllCoupons():Observable<any>{
+    return this.http.get(BASIC_URL + "admin/coupons/getAll" ,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
   }
 

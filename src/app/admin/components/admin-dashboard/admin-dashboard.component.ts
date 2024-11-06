@@ -15,6 +15,8 @@ export class AdminDashboardComponent {
   products:any=[];
   searchProduct:FormGroup;
 
+  imagepath: string = "../../../images/productImg.png";
+  
   constructor(private adminService:AdminService
     ,private fb:FormBuilder
   ){}

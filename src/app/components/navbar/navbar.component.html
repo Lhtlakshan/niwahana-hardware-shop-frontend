@@ -3,7 +3,7 @@
     <div class="navbar-brand ms-3">Niwahana Hardware</div>
 
     <div class="d-flex">
-      <button class="btn" routerLink="">Home</button>
+      <button class="btn" routerLink="/">Home</button>
     </div>
     <div class="d-flex flex-row me-lg-5 bg-secondary rounded-3 text-bg-success ms-auto">
       <a
@@ -15,6 +15,15 @@
       <a class="nav-item nav-link p-2" href="#" routerLink="signup">Signup</a>
     </div>
   </nav>
+
+  <div class="text-center mt-4 ">
+    <h2>Niwahana Hardware Products Store</h2>
+    <div class="text-secondary mt-3">
+      <h5>For more details</h5>
+    <a href="" class="link-underline-opacity-0-hover" routerLink="/signup">Signup</a>
+    </div>
+    <img [src]="imagepath" alt="" srcset="" [style.width]="'700px'" [style.height]="'520px'">
+  </div>
 </div>
 
 
@@ -28,6 +37,8 @@
       <button class="btn" routerLink="admin/add-category">Category</button>
       <button class="btn" routerLink="admin/add-product">Product</button>
       <button class="btn" routerLink="login">Orders</button>
+      <button class="btn" routerLink="admin/add-coupon">Add coupon</button>
+      <button class="btn" routerLink="admin/coupons">Coupons</button>
     </div>
     <div class="me-lg-5 bg-secondary rounded-3 text-bg-success ms-auto">
       <a
