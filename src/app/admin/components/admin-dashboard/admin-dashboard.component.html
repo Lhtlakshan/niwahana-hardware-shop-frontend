@@ -1,1 +1,44 @@
-<p>admin-dashboard works!</p>
+<div class="container">
+  <div class="row height d-flex justify-content-center align-items-center" [formGroup]="searchProduct">
+    <div class="col-md-8">
+      <div class="search d-flex flex-raw m-4">
+        <input
+          type="text"
+          class="form-control me-3"
+          placeholder="Search products by name"
+          formControlName="productName"
+        />
+        <button class="btn btn-primary" (click)="submitSearch()">Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex">
+  <div
+    class="card m-auto mt-5"
+    style="width: 18rem"
+    *ngFor="let product of products"
+  >
+    <img class="card-img-top" [src]="product.procce" alt="Card image cap" />
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <div class="card-text d-flex flex-column mb-2">
+        <div>
+          {{ product.description }}
+        </div>
+        <div class="d-flex mt-2">
+          <h6>Price :</h6>
+          <p class="ms-5">Rs: {{ product.price }}</p>
+        </div>
+        <div class="d-flex">
+          <h6>Category :</h6>
+          <p class="ms-5">{{ product.categoryName }}</p>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary me-3">Update</button>
+      <button type="button" class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>
+    </div>
+  </div>
+</div>

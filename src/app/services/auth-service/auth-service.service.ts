@@ -25,8 +25,6 @@ export class AuthService {
       const token = res.headers.get('Authorization')?.substring(7);
       const user = res.body;
 
-      console.log("Saved user:", this.userStorageService);
-
       if (token && user) {
         this.userStorageService.saveToken(token);
         this.userStorageService.saveUser(user);
