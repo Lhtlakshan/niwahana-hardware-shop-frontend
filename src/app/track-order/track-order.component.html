@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row height d-flex justify-content-center align-items-center" [formGroup]="searchOrderForm">
+    <div class="col-md-8">
+        <h2>Tracking Orders</h2>
+      <div class="search d-flex flex-raw m-4">
+        <input
+          type="text"
+          class="form-control me-3"
+          placeholder="Tracking Id"
+          formControlName="trackingId"
+          id="trackingId"
+        />
+        <button class="btn btn-primary" (click)="submitForm()">Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex">
+  <div
+    class="card m-auto mt-5"
+    style="width: 20rem"
+    *ngIf="order"
+  >
+    <div class="card-body">
+      <h5 class="card-title text-bg-success p-3 rounded-2">Order Datails</h5>
+      <div class="card-text d-flex flex-column mb-2">
+        <div class="d-flex mt-2">
+          <h6>Tracking Id :</h6>
+          <p class="ms-5">{{order.trackingId}}</p>
+        </div>
+        <div class="d-flex">
+          <h6>User name :</h6>
+          <p class="ms-5">{{order.userName}}</p>
+        </div>
+        <div class="d-flex mt-2">
+          <h6>Address :</h6>
+          <p class="ms-5">{{order.address}}</p>
+        </div>
+        <div class="d-flex">
+          <h6>Amount :</h6>
+          <p class="ms-5">{{order.amount}}</p>
+        </div>
+        <div class="d-flex mt-2">
+          <h6>Status :</h6>
+          <p class="ms-5">{{order.orderStatus}}</p>
+        </div>
+        <div class="d-flex">
+          <h6>Date :</h6>
+          <p class="ms-5">{{order.date}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,6 +13,8 @@ import { OrdersComponent } from './admin/components/orders/orders.component';
 import { CustomerOrdersComponent } from './customer/components/customer-orders/customer-orders.component';
 import { UpdateProductComponent } from './admin/components/update-product/update-product.component';
 import { HomeComponent } from './components/home/home.component';
+import { TrackOrderComponent } from './track-order/track-order.component';
+import { AnalyticsComponent } from './admin/components/analytics/analytics.component';
 
 export const routes: Routes = [
     {
@@ -70,5 +72,13 @@ export const routes: Routes = [
     {
         path:"admin/update-product/:product-id",
         component:UpdateProductComponent
+    },
+    {
+        path:"admin/track-order",
+        component:TrackOrderComponent
+    },
+    {
+        path:"admin/analytics",
+        component:AnalyticsComponent
     }
 ];

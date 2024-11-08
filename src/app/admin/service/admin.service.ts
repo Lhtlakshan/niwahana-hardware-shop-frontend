@@ -61,12 +61,6 @@ export class AdminService {
     })
   }
   
-  private createAuthorizationHeader():HttpHeaders{
-    return new HttpHeaders().set(
-      'Authorization','Bearer ' + UserStorageService.getToken()
-    )
-  }
-
   addCoupon(couponDto:any):Observable<any>{
     return this.http.post(BASIC_URL + "admin/coupons/add" , couponDto,{
       headers:this.createAuthorizationHeader()
@@ -89,6 +83,18 @@ export class AdminService {
     return this.http.get(BASIC_URL+`admin/order/${orderId}/${status}`,{
       headers:this.createAuthorizationHeader()
     })
+  }
+
+  getOrderAnalytics():Observable<any>{
+    return this.http.get(BASIC_URL + "admin/order/analytics" ,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
+
+  private createAuthorizationHeader():HttpHeaders{
+    return new HttpHeaders().set(
+      'Authorization','Bearer ' + UserStorageService.getToken()
+    )
   }
 
   }
