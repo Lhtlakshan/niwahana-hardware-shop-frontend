@@ -13,6 +13,8 @@ import { AdminService } from '../../service/admin.service';
 export class PostCouponComponent {
   couponForm:FormGroup
 
+    imagepath: string = "../../../images/coupon.png"
+
   constructor(private fb:FormBuilder,
     private router:Router,
     private adminService: AdminService

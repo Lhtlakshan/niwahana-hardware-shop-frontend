@@ -15,6 +15,8 @@ export class PostCategoryComponent {
  
   categoryForm:FormGroup
 
+  imagepath: string = "../../../images/productCategory.jpg"
+
   constructor(private fb:FormBuilder,
     private router:Router,
     private adminService: AdminService

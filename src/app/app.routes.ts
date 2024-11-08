@@ -8,8 +8,17 @@ import { PostProductComponent } from './admin/components/post-product/post-produ
 import { CartComponent } from './customer/components/cart/cart.component';
 import { PostCouponComponent } from './admin/components/post-coupon/post-coupon.component';
 import { CouponsComponent } from './admin/components/coupons/coupons.component';
+import { PlaceOrderComponent } from './customer/components/place-order/place-order.component';
+import { OrdersComponent } from './admin/components/orders/orders.component';
+import { CustomerOrdersComponent } from './customer/components/customer-orders/customer-orders.component';
+import { UpdateProductComponent } from './admin/components/update-product/update-product.component';
+import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
+    {
+        path:"home",
+        component:HomeComponent
+    },
     {
         path:"signup",
         component:SignupComponent
@@ -45,5 +54,21 @@ export const routes: Routes = [
     {
         path:"admin/coupons",
         component:CouponsComponent
+    },
+    {
+        path:"customer/place-order",
+        component:PlaceOrderComponent
+    },
+    {
+        path:"admin/placed-orders",
+        component:OrdersComponent
+    },
+    {
+        path:"customer/placed-orders",
+        component:CustomerOrdersComponent
+    },
+    {
+        path:"admin/update-product/:product-id",
+        component:UpdateProductComponent
     }
 ];

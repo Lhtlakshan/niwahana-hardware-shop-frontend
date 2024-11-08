@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CustomerService } from '../../service/customer.service';
 import { NgFor, NgIf } from '@angular/common';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -18,7 +19,7 @@ export class CartComponent {
   couponForm: FormGroup
 
   constructor(private customerService:CustomerService
-    ,private fb:FormBuilder
+    ,private fb:FormBuilder,private router:Router
   ){}
 
   ngOnInit(){
@@ -47,7 +48,17 @@ export class CartComponent {
         this.cart.push(element);
       });
       console.log(this.cart); 
+    }) 
+  }
+
+  increaseQty(productId:any){
+    this.customerService.increaseProductQty(productId).subscribe(res=>{
+      alert("Increased the product by 1");
+      this.getCart();
     })
-    
+  }
+
+  placeOrder(){
+    this.router.navigateByUrl("customer/place-order");
   }
 }

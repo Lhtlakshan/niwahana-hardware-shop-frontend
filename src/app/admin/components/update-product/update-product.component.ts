@@ -1,20 +1,21 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AdminService } from '../../service/admin.service';
 import { NgFor, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-post-product',
+  selector: 'app-update-product',
   standalone: true,
-  imports: [ReactiveFormsModule , NgIf , NgFor,RouterLink],
-  templateUrl: './post-product.component.html',
-  styleUrl: './post-product.component.css'
+  imports: [RouterLink,ReactiveFormsModule,NgIf,NgFor],
+  templateUrl: './update-product.component.html',
+  styleUrl: './update-product.component.css'
 })
-export class PostProductComponent {
+export class UpdateProductComponent {
   productForm:FormGroup
 
   imagepath: string = "../../../images/cartImg.jpg";
+  productId:any;
   
   listOfCategories:any=[];
   selectedFile: File | null;
@@ -22,8 +23,11 @@ export class PostProductComponent {
 
   constructor(private fb:FormBuilder,
     private router:Router,
-    private adminService: AdminService
-  ){}
+    private adminService: AdminService,
+    private activetedRoute:ActivatedRoute
+  ){
+    this.productId = this.activetedRoute.snapshot.params["product-id"];
+  }
 
   onFileSelected(event:any){
     this.selectedFile = event.target.files[0];
@@ -47,6 +51,7 @@ export class PostProductComponent {
     })
 
     this.getAllCategories()
+    this.getProductById()
   }
 
   getAllCategories(){
@@ -55,18 +60,25 @@ export class PostProductComponent {
     })
   }
 
-  addProduct(){
-    if(this.productForm.valid){
-      const formData:FormData = new FormData();
+  getProductById(){
+    this.adminService.getProductById(this.productId).subscribe(res=>{
+      this.productForm.patchValue(res);
+    })
+  }
+
+  updateProduct(){
+    if(this.productForm.valid){const formData:FormData = new FormData();
       formData.append('img',this.selectedFile);
       formData.append('categoryId',this.productForm.get('categoryId').value);
       formData.append('name',this.productForm.get('name').value);
       formData.append('description',this.productForm.get('description').value);
       formData.append('price',this.productForm.get('price').value);
 
-      this.adminService.addProduct(formData).subscribe((res)=>{
-          if(res.id != null){
+      this.adminService.updateProduct(this.productId,formData).subscribe((res)=>{
+        if(res.id != null){
             this.router.navigateByUrl("admin/adminDashboard");
+          }else{ 
+            alert("Product not updated...")
           }
       })
     }else{

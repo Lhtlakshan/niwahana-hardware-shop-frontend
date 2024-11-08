@@ -4,12 +4,12 @@
       [src]="imagepath"
       alt=""
       srcset=""
-      [style.width]="'400px'"
-      [style.height]="'400px'"
+      [style.width]="'600px'"
+      [style.height]="'500px'"
     />
   </div>
 
-  <div class="form w-100" [formGroup]="signupForm">
+  <div class="form w-100 me-4" [formGroup]="signupForm">
     <h1 class="text-center">Signup</h1>
     <div class="form-group m-4">
       <label for="name">Name</label>
@@ -56,7 +56,7 @@
         formControlName="confirm_password"
       />
     </div>
-    <p class="ms-4">If you already have an account please login <a href="" class="link-underline-opacity-0-hover" routerLink="/login">Login</a></p>
+    <p class="ms-4">If you already have an account please <a href="" class="link-offset-2 link-underline link-underline-opacity-0" routerLink="/login">Login</a></p>
     <button type="submit" class="btn btn-primary m-4" (click)="onSubmit()">
       Signup
     </button>

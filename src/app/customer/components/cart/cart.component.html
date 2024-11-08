@@ -23,6 +23,7 @@
             <p>Price :</p>
             <h5 class="text-grey ms-2">{{ item.price }}</h5>
           </div>
+          <Button class="btn btn-secondary btn-sm" (click)="increaseQty(item.productId)">+</Button>
         </div>
         <div class="text-end text-danger mt-4">
           <div class="d-flex ms-2">
@@ -35,7 +36,7 @@
           </div>
         </div>
         <div class="text-end mt-5">
-          <button class="btn btn-primary btn-lg" type="button">
+          <button class="btn btn-primary btn-lg" type="button" (click)="placeOrder()">
             Place order
           </button>
         </div>

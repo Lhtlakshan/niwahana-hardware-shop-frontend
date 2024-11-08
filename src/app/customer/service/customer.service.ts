@@ -35,6 +35,16 @@ export class CustomerService {
     })
   }
 
+  increaseProductQty(productId:any):Observable<any>{
+    const cartDto = {
+      userId: UserStorageService.getUserId() ,
+      productId: productId   
+    }
+    return this.http.post(BASIC_URL + "customer/add-product",cartDto ,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
+
   getCartByUserId():Observable<any>{
     const userId = UserStorageService.getUserId();
     return this.http.get(BASIC_URL + `customer/get-cart/${userId}` ,{
@@ -42,9 +52,23 @@ export class CustomerService {
     })
   }
 
+  getPlacedOrdersByUserId():Observable<any>{
+    const userId = UserStorageService.getUserId();
+    return this.http.get(BASIC_URL + `customer/placed-orders/${userId}` ,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
+
  applyCoupon(code:any):Observable<any>{
     const userId = UserStorageService.getUserId();
     return this.http.get(BASIC_URL + `customer/coupon/${userId}/${code}` ,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
+
+  placeOrder(orderDto:any):Observable<any>{
+    orderDto.userId = UserStorageService.getUserId();
+    return this.http.post(BASIC_URL + "customer/place-order",orderDto ,{
       headers:this.createAuthorizationHeader()
     })
   }

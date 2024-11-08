@@ -42,8 +42,21 @@ export class AdminService {
     })
   }
 
+  
+  getProductById(productId:any):Observable<any>{
+    return this.http.get(BASIC_URL + `admin/product/${productId}` ,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
+
   deleteProduct(id:any):Observable<any>{
     return this.http.delete(BASIC_URL + `admin/product/delete/${id}` ,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
+
+  updateProduct(productId:any ,productDto:any):Observable<any>{
+    return this.http.put(BASIC_URL + `admin/product/update-product/${productId}` , productDto,{
       headers:this.createAuthorizationHeader()
     })
   }
@@ -65,5 +78,18 @@ export class AdminService {
       headers:this.createAuthorizationHeader()
     })
   }
+
+  getAllPlacedOrders():Observable<any>{
+    return this.http.get(BASIC_URL + "admin/placed-orders" ,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
+
+  changeOrderStatus(orderId:number , status:string):Observable<any>{
+    return this.http.get(BASIC_URL+`admin/order/${orderId}/${status}`,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
+
   }
 
