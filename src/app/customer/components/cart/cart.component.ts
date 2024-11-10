@@ -43,7 +43,7 @@ export class CartComponent {
     this.customerService.getCartByUserId().subscribe(res=>{
       this.order = res;
       console.log(this.order);
-      
+      console.log(this.order.discount);
       res.cartItems.forEach(element => {
         this.cart.push(element);
       });

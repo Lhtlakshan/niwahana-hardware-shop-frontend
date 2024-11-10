@@ -30,7 +30,7 @@ export class PlaceOrderComponent {
       this.customerService.placeOrder(this.orderForm.value).subscribe(
         (res)=>{
           if(res != null){
-            this.router.navigateByUrl("customer/my-order");
+            this.router.navigateByUrl("customer/placed-order");
           }else{
             alert("Order cannot be created. Please try again...");
           }
