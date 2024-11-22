@@ -1,11 +1,13 @@
 <div *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="navbar-brand ms-3">Niwahana Hardware</div>
+    <div class="navbar-brand m-3">Niwahana Hardware</div>
 
     <div class="d-flex">
       <button class="btn" routerLink="home">Home</button>
     </div>
-    <div class="d-flex flex-row me-lg-5 bg-secondary rounded-3 text-bg-success ms-auto">
+    <div
+      class="d-flex flex-row me-lg-5 bg-secondary rounded-3 text-bg-success ms-auto"
+    >
       <a
         class="nav-item nav-link me-lg-2 btn btn-primary p-2 active"
         href="#"
@@ -19,7 +21,7 @@
 
 <div *ngIf="isAdminLoggedIn">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="navbar-brand ms-3">Niwahana Hardware</div>
+    <div class="navbar-brand m-3">Niwahana Hardware</div>
     <div class="d-flex">
       <button class="btn" routerLink="admin/adminDashboard">Dashboard</button>
       <button class="btn" routerLink="admin/analytics">Analysis</button>
@@ -42,9 +44,11 @@
 
 <div *ngIf="isCustomerLoggedIn">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="navbar-brand ms-3">Niwahana Hardware</div>
+    <div class="navbar-brand m-3">Niwahana Hardware</div>
     <div class="d-flex">
-      <button class="btn" routerLink="customer/customerDashboard">Dashboard</button>
+      <button class="btn" routerLink="customer/customerDashboard">
+        Dashboard
+      </button>
       <button class="btn" routerLink="customer/cart">Cart</button>
       <button class="btn" routerLink="customer/placed-orders">Orders</button>
       <button class="btn" routerLink="login">Profile</button>
