@@ -1,5 +1,8 @@
 <div class="container">
-  <div class="row height d-flex justify-content-center align-items-center" [formGroup]="searchProduct">
+  <div
+    class="row height d-flex justify-content-center align-items-center"
+    [formGroup]="searchProduct"
+  >
     <div class="col-md-8">
       <div class="search d-flex flex-raw m-4">
         <input
@@ -14,7 +17,8 @@
   </div>
 </div>
 
-<div class="d-flex">
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 mt-5">
   <div
     class="card m-auto mt-5"
     style="width: 18rem"
@@ -37,8 +41,21 @@
         </div>
       </div>
 
-      <button type="button" class="btn btn-primary me-3" [routerLink]="['/admin/update-product', product.id]">Update</button>
-      <button type="button" class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>
+      <button
+        type="button"
+        class="btn btn-primary me-3"
+        [routerLink]="['/admin/update-product', product.id]"
+      >
+        Update
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="deleteProduct(product.id)"
+      >
+        Delete
+      </button>
     </div>
   </div>
+</div>
 </div>
